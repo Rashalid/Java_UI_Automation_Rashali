@@ -17,6 +17,9 @@ public class CheckoutPage extends LoadPage {
     private By txtPaymentOption = By.xpath("//*[@id=\"opc-payment\"]/div[1]/h2");
     private By radioBtnCreditCard = By.xpath("//*[@id=\"checkout-payment-method-load\"]/div[1]/dt/label");
     private By txtCreditCardField = By.xpath("//*[@id=\"payment_form_braintree\"]/li[3]/label");
+    private By txtCreditCardInputField = By.xpath("//input[@id='braintree_cc_number']");
+    private By btnPurchase = By.xpath("//*[@id=\"payment-method-button\"]");
+    private By txtCreditCardNumberEmptyError = By.xpath("//*[@id=\"advice-required-entry-braintree_cc_number\"]");
 
     public void clickCheckoutFromCart() {
         loadUI.click(btnCheckout);
@@ -76,5 +79,20 @@ public class CheckoutPage extends LoadPage {
         loadUI.click(txtCheckoutLastName);
         loadUI.sendKeys(txtCheckoutLastName, lastName);
         loadUI.sleep(2);
+    }
+
+    public void validateCreditCardFields(String creditCardNumber) {
+        loadUI.sleep(2);
+        loadUI.click(txtCreditCardInputField);
+        loadUI.sleep(2);
+        loadUI.sendKeys(txtCreditCardInputField, creditCardNumber);
+    }
+
+    public void clickPurchaseButton() {
+        loadUI.click(btnPurchase);
+    }
+
+    public String creditCardEmptyFieldsError() {
+        return loadUI.getText(txtCreditCardNumberEmptyError);
     }
 }

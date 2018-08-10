@@ -15,14 +15,14 @@ public class CheckoutTest extends TestBase {
 
     @BeforeClass
     public void init(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "Java Based Web UI Automation");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
         LoadWebPage.loadPage();
         LoadWebPage.verifyInvalidAge();
         LoadWebPage.verifyValidAge();
         Login.testClickOnMyAccount();
         Login.testClickLoginWithCorrectEmailCorrectPassword();
         MyAccountAndAddToCart.testClickOnCart();
-//        MyAccountAndAddToCart.checkCartItems();
+        MyAccountAndAddToCart.checkCartItems();
         MyAccountAndAddToCart.addItemToCart();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertAll();
@@ -40,9 +40,9 @@ public class CheckoutTest extends TestBase {
     @Test(priority = 2, alwaysRun = true)
     public static void testVerifyFirstNameLastName() {
         SoftAssert softAssert = new SoftAssert();
-        Checkout.verifyFirstName();
+//        Checkout.verifyFirstName();
         softAssert.assertEquals(Checkout.verifyFirstName(),"william","Expected values not found");
-        Checkout.verifyLastName();
+//        Checkout.verifyLastName();
         softAssert.assertEquals(Checkout.verifyLastName(),"jacob","Expected values not found");
         softAssert.assertAll();
     }
@@ -78,8 +78,23 @@ public class CheckoutTest extends TestBase {
         SoftAssert softAssert = new SoftAssert();
         Checkout.clickCreditCardRadioButton();
         softAssert.assertEquals(Checkout.isCreditCardOption(),"Credit Card Number*","Expected option not found");
-//        Checkout.validateCreditCardFields();
-//        softAssert.assertEquals(Checkout.isCreditCardOption(),"PAYMENT INFO","Expected option not found");
+        softAssert.assertAll();
+    }
+
+    @Test(priority = 7, alwaysRun = true)
+    public static void testPurchaseButtonWithEmpyFields() {
+        SoftAssert softAssert = new SoftAssert();
+        Checkout.clickPurchaseButton();
+        softAssert.assertEquals(Checkout.creditCardEmptyFieldsError(),"This is a required field.","Expected values not found");
+        softAssert.assertAll();
+    }
+
+    @Test(priority = 8, alwaysRun = true)
+    public static void testValidateCCFields() {
+        SoftAssert softAssert = new SoftAssert();
+        Checkout.validateCreditCardFields();
+        Checkout.clickPurchaseButton();
+        softAssert.assertEquals(Checkout.creditCardEmptyFieldsError(),"Please enter a valid credit card number.","Expected option not found");
         softAssert.assertAll();
     }
 

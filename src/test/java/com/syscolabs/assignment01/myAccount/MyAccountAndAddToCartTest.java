@@ -14,7 +14,7 @@ public class MyAccountAndAddToCartTest extends TestBase {
 
     @BeforeClass
     public void init(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "Java Based Web UI Automation");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
         LoadWebPage.loadPage();
         LoadWebPage.verifyInvalidAge();
         LoadWebPage.verifyValidAge();
@@ -26,6 +26,7 @@ public class MyAccountAndAddToCartTest extends TestBase {
     public static void testCartItemsAndRemoveItems() {
         SoftAssert softAssert = new SoftAssert();
         MyAccountAndAddToCart.testClickOnCart();
+        MyAccountAndAddToCart.isCartEmpty();
         MyAccountAndAddToCart.checkCartItems();
         softAssert.assertEquals(MyAccountAndAddToCart.isCartEmpty(),"0","Expected values not found");
         softAssert.assertAll();

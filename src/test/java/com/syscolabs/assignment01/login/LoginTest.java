@@ -14,7 +14,7 @@ public class LoginTest extends TestBase {
 
     @BeforeClass
     public void init(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "Java Based Web UI Automation");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
         LoadWebPage.loadPage();
         LoadWebPage.verifyInvalidAge();
         LoadWebPage.verifyValidAge();

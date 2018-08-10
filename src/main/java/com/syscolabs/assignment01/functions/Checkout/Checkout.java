@@ -59,6 +59,18 @@ public class Checkout {
     }
 
     public static void enterValues() {
-        checkoutPage.enterValues(Constants.LASTNAME);
+        checkoutPage.enterValues(Constants.LAST_NAME);
+    }
+
+    public static void validateCreditCardFields() {
+        checkoutPage.validateCreditCardFields(Constants.CREDIT_CARD_NUMBER);
+    }
+
+    public static void clickPurchaseButton() {
+        checkoutPage.clickPurchaseButton();
+    }
+
+    public static String creditCardEmptyFieldsError() {
+        return checkoutPage.creditCardEmptyFieldsError();
     }
 }

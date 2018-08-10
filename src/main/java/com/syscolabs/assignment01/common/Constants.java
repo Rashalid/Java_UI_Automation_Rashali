@@ -8,7 +8,7 @@ public class Constants{
     public static final boolean RUN_LOCALLY = Boolean.parseBoolean(System.getProperty("run.locally", "true"));
 
     public static final String TEST_ENV = System.getProperty("test.env", "QA");
-    public static final String TEST_RELEASE = System.getProperty("test.release", "Java Based Web UI Automation");
+    public static final String TEST_RELEASE = System.getProperty("test.release", "Assignment_Rashali");
     public static final String TEST_PROJECT = System.getProperty("test.project", "Java Based Web UI Automation");
 
 
@@ -21,5 +21,6 @@ public class Constants{
     public static final String INVALID_PASSWORD = "123456";
     public static final String INVALID_EMAIL_ADDRESS = "abc123@mail.com";
     public static final String PASSWORD = "12345678";
-    public static final String LASTNAME = "jacob";
+    public static final String LAST_NAME = "jacob";
+    public static final String CREDIT_CARD_NUMBER = "4859671549325864";
 }

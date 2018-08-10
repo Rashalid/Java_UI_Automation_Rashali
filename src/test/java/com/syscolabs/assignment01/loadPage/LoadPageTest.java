@@ -13,7 +13,7 @@ public class LoadPageTest extends TestBase{
 
     @BeforeClass
     public void init(ITestContext iTestContext) {
-        iTestContext.setAttribute("feature", "Java Based Web UI Automation");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
     }
 
     @Test(priority = 1, alwaysRun = true)

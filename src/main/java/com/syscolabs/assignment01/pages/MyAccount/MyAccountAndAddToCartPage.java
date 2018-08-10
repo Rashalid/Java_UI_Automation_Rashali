@@ -10,10 +10,10 @@ public class MyAccountAndAddToCartPage extends LoadPage {
 
     private By btnCart = By.xpath("//*[@id=\"cartHeader\"]");
     private By txtCartEmpty = By.xpath("//*[@id=\"quick-access-list\"]/li[2]/ul/li[3]/div/div[1]/span[2]");
-    private By btnRemoveCartItems = By.xpath("/html//ol[@id='mini-cart']//a[@title='Remove']");
+    private By btnRemoveCartItems = By.xpath("//a[@title='Remove']");
     private By btnProducts = By.xpath("//*[@id=\"nav-wrapper\"]/div/ul[1]/li[1]/a");
     private By btnClassicRange = By.xpath("//*[@id=\"nav-wrapper\"]/div/div[4]/div[1]/div[1]/ul/li/ul/li[5]/a");
-    private By btnFirstItemOnProductPage = By.xpath("//div[@id='recommended-container-block']//div[@role='listbox']/li[2]//a[@id='main-image']/img[@alt='Bundaberg Rum UP 700ml']");
+    private By btnFirstItemOnProductPage = By.xpath("//div[@id='recommended-container-block']//div[@role='listbox']/li[3]//a[@id='main-image']");
     private By btnAddToCart = By.xpath("//*[@id=\"price-inner-content\"]/div[2]/div/div[2]/button");
     private By txtProductName = By.xpath("//*[@id=\"product-info\"]/div/div[1]/h1");
     private By txtProductNameInCart = By.xpath("//*[@id=\"mini-cart\"]/li/div/p/a");
@@ -52,9 +52,9 @@ public class MyAccountAndAddToCartPage extends LoadPage {
 
         if (noOfItems != 0) {
             for (int i = 1; i <= noOfItems; i++) {
-                loadUI.driver.findElement(btnCart).click();
-                loadUI.sleep(5);
-                loadUI.driver.findElement(btnRemoveCartItems).click();
+//                loadUI.click(btnCart);
+                loadUI.sleep(2);
+                loadUI.click(btnRemoveCartItems);
                 loadUI.sleep(2);
                 try {
                     Robot robot = new Robot();
