@@ -4,7 +4,7 @@ public class Constants{
 
     private Constants (){}
 
-    public static final boolean UPDATE_DASHBOARD = Boolean.parseBoolean(System.getProperty("update.dashboard", "false"));
+    public static final boolean UPDATE_DASHBOARD = Boolean.parseBoolean(System.getProperty("update.dashboard", "true"));
     public static final boolean RUN_LOCALLY = Boolean.parseBoolean(System.getProperty("run.locally", "true"));
 
     public static final String TEST_ENV = System.getProperty("test.env", "QA");

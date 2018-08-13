@@ -34,10 +34,12 @@ public class CheckoutPage extends LoadPage {
     }
 
     public String verifyFirstName() {
+        loadUI.sleep(2);
         return loadUI.getText(txtCheckoutFirstName);
     }
 
     public String verifyLastName() {
+        loadUI.sleep(2);
         return loadUI.getText(txtCheckoutLastName);
     }
 
@@ -68,6 +70,7 @@ public class CheckoutPage extends LoadPage {
     }
 
     public void clickCreditCardRadioButton() {
+        loadUI.sleep(2);
         loadUI.click(radioBtnCreditCard);
     }
 

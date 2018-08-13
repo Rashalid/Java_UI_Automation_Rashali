@@ -38,16 +38,23 @@ public class CheckoutTest extends TestBase {
     }
 
     @Test(priority = 2, alwaysRun = true)
-    public static void testVerifyFirstNameLastName() {
+    public static void testVerifyFirstName() {
         SoftAssert softAssert = new SoftAssert();
-//        Checkout.verifyFirstName();
-        softAssert.assertEquals(Checkout.verifyFirstName(),"william","Expected values not found");
-//        Checkout.verifyLastName();
-        softAssert.assertEquals(Checkout.verifyLastName(),"jacob","Expected values not found");
+        Checkout.verifyFirstName();
+        softAssert.assertEquals(Checkout.verifyFirstName(),"","Expected values not found");
         softAssert.assertAll();
     }
 
     @Test(priority = 3, alwaysRun = true)
+    public static void testVerifyLastName() {
+        SoftAssert softAssert = new SoftAssert();
+        Checkout.verifyLastName();
+        softAssert.assertEquals(Checkout.verifyLastName(),"","Expected values not found");
+        softAssert.assertAll();
+    }
+
+
+    @Test(priority = 4, alwaysRun = true)
     public static void testValidateContinueButtonWithoutFillingMandatoryFields() {
         SoftAssert softAssert = new SoftAssert();
         Checkout.deleteMandatoryFieldText();
@@ -57,7 +64,7 @@ public class CheckoutTest extends TestBase {
         softAssert.assertAll();
     }
 
-    @Test(priority = 4, alwaysRun = true)
+    @Test(priority = 5, alwaysRun = true)
     public static void testBillingAndShippingContinueButton() {
         SoftAssert softAssert = new SoftAssert();
         Checkout.clickContinueButton();
@@ -65,7 +72,7 @@ public class CheckoutTest extends TestBase {
         softAssert.assertAll();
     }
 
-    @Test(priority = 5, alwaysRun = true)
+    @Test(priority = 6, alwaysRun = true)
     public static void testDeliveryContinueButton() {
         SoftAssert softAssert = new SoftAssert();
         Checkout.clickDeliveryContinueButton();
@@ -73,7 +80,7 @@ public class CheckoutTest extends TestBase {
         softAssert.assertAll();
     }
 
-    @Test(priority = 6, alwaysRun = true)
+    @Test(priority = 7, alwaysRun = true)
     public static void testSelectPaymentTypeCC() {
         SoftAssert softAssert = new SoftAssert();
         Checkout.clickCreditCardRadioButton();
@@ -81,7 +88,7 @@ public class CheckoutTest extends TestBase {
         softAssert.assertAll();
     }
 
-    @Test(priority = 7, alwaysRun = true)
+    @Test(priority = 8, alwaysRun = true)
     public static void testPurchaseButtonWithEmpyFields() {
         SoftAssert softAssert = new SoftAssert();
         Checkout.clickPurchaseButton();
@@ -89,7 +96,7 @@ public class CheckoutTest extends TestBase {
         softAssert.assertAll();
     }
 
-    @Test(priority = 8, alwaysRun = true)
+    @Test(priority = 9, alwaysRun = true)
     public static void testValidateCCFields() {
         SoftAssert softAssert = new SoftAssert();
         Checkout.validateCreditCardFields();
